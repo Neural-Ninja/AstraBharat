@@ -1,0 +1,8 @@
+tk
+Pillow
+ultralytics
+opencv-python
+matplotlib
+onnx
+torch
+psutil
