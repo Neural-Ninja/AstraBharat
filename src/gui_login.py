@@ -11,7 +11,7 @@ class LoginPage:
         self.window.title('AstraBharat - Secure Access')
 
         try:
-            self.bg_frame = Image.open('images\\background1.png')
+            self.bg_frame = Image.open('images/background1.png')
             photo = ImageTk.PhotoImage(self.bg_frame)
             self.bg_panel = Label(self.window, image=photo)
             self.bg_panel.image = photo
@@ -28,7 +28,7 @@ class LoginPage:
         self.heading.place(relx=0.5, y=30, anchor=CENTER)
 
         try:
-            self.logo_image = Image.open('images\\vector.png').resize((300, 300))
+            self.logo_image = Image.open('images/vector.png').resize((300, 300))
             photo = ImageTk.PhotoImage(self.logo_image)
             self.logo_label = Label(self.lgn_frame, image=photo, bg='#1a1a1a')
             self.logo_label.image = photo
@@ -55,7 +55,7 @@ class LoginPage:
         self.username_entry.place(x=30, y=85, width=240, height=35)
 
         try:
-            self.username_icon = Image.open('images\\username_icon.png').resize((20, 20))
+            self.username_icon = Image.open('images/username_icon.png').resize((20, 20))
             photo = ImageTk.PhotoImage(self.username_icon)
             self.username_icon_label = Label(self.login_panel, image=photo, bg='#2a2a2a')
             self.username_icon_label.image = photo
@@ -72,7 +72,7 @@ class LoginPage:
         self.password_entry.place(x=30, y=155, width=240, height=35)
 
         try:
-            self.password_icon = Image.open('images\\password_icon.png').resize((20, 20))
+            self.password_icon = Image.open('images/password_icon.png').resize((20, 20))
             photo = ImageTk.PhotoImage(self.password_icon)
             self.password_icon_label = Label(self.login_panel, image=photo, bg='#2a2a2a')
             self.password_icon_label.image = photo
@@ -81,8 +81,8 @@ class LoginPage:
             pass
 
         try:
-            self.show_image = ImageTk.PhotoImage(file='images\\show.png')
-            self.hide_image = ImageTk.PhotoImage(file='images\\hide.png')
+            self.show_image = ImageTk.PhotoImage(file='images/show.png')
+            self.hide_image = ImageTk.PhotoImage(file='images/hide.png')
         except:
             self.show_image = self.hide_image = None
 
