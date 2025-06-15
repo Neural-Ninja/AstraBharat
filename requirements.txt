@@ -1,5 +1,4 @@
-tkinter>=8.6.12
-python==3.12.5
+tk
 ultralytics==8.1.34
 torch>=2.0.0
 opencv-python>=4.8.0
