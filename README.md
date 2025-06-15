@@ -1,19 +1,8 @@
-# AstraBharat Surveillance System
+# AstraBharat Surveillance System (# Inspired by Operation Sindoor)
 
 ## Overview
 
-This project is a comprehensive surveillance and object detection suite developed for AstraBharat Defense Systems. It features real-time video analytics, data logging, and a secure login interface, leveraging state-of-the-art YOLO object detection models and a user-friendly GUI.
-
----
-
-## Features
-
-- **Secure Login:** Modern login interface with splash screen ([gui_login.py](gui_login.py))
-- **YOLOv8 Detection:** Snapdragon NPU-optimized YOLOv8 tracking ([detection.py](detection.py))
-- **YOLOv8 Quantized:** Quantized YOLOv8 detection for efficient inference ([yolov8-quant.py](yolov8-quant.py))
-- **Performance Graphs:** Live CPU and  NPU performance graphs
-- **Detection Logs:** Save detection logs as CSV
-- **Custom Branding:** Includes AstraBharat logos
+AstraBharat is a secure, AI-powered surveillance system. It features a secure login, real-time stats, object detection using vision models, and analysis using LLM models for faster response in critical and emergency situations.
 
 ---
 
@@ -21,16 +10,31 @@ This project is a comprehensive surveillance and object detection suite develope
 
 ```
 .
-├── best.pt                  # Custom YOLOv8 model weights
-├── yolov8n.pt               # YOLOv8 nano model weights
-├── detection.py             # Snapdragon NPU-optimized YOLOv8 GUI
-├── gui_login.py             # Secure login and splash screen
-├── tempCodeRunnerFile.py    # Main telemetry dashboard and detection GUI
-├── yolo-nas.py              # YOLO-NAS detection GUI with quantization
-├── yolov8-quant.py          # Quantized YOLOv8 detection GUI
-├── requirements.txt         # Python dependencies
-├── images/                  # GUI assets (icons, backgrounds)
-├── Logos/                   # Branding logos
+├── src/                    # Source code for GUI, login, and logic
+│   ├── astra_gui_final.py  # Main dashboard and detection GUI
+│   ├── gui_login.py        # Secure login and splash screen
+│   ├── llm.py              # LLM integration (if present)
+│   └── __pycache__/        # Python bytecode cache
+├── Models/                 # Model weights for detection
+│   ├── best.pt             # YOLOv8 PyTorch weights
+│   └── best.onnx           # YOLOv8 ONNX weights
+├── Logos/                  # Branding logos
+│   ├── AstraBharat_logo.png
+│   └── qualcomm_logo.png
+├── images/                 # GUI assets (icons, backgrounds)
+│   ├── astro_logo.png
+│   ├── background1.png
+│   ├── btn1.png
+│   ├── hide.png
+│   ├── in_space.png
+│   ├── password_icon.png
+│   ├── show.png
+│   ├── splash.gif
+│   ├── username_icon.png
+│   └── vector.png
+├── requirements.txt        # Python dependencies
+├── README.md               # This file
+└── LICENSE                 # License information
 ```
 
 ---
@@ -38,15 +42,17 @@ This project is a comprehensive surveillance and object detection suite develope
 ## Setup
 
 1. **Clone the repository** and ensure all files and folders are present.
-2. **Install dependencies:**
+2. **Python Version:**  
+   This project requires **Python 3.12.5**.  
+   You can download it from [python.org](https://www.python.org/downloads/release/python-3125/).
+3. **Install dependencies:**
     ```sh
     pip install -r requirements.txt
     ```
-    *(You may need to manually install some packages like `ultralytics`, `torch`, `opencv-python`, `matplotlib`, `pillow`, `psutil`, etc.)*
+    - You may need to manually install some packages like `ultralytics`, `torch`, `opencv-python`, `matplotlib`, `pillow`, `psutil`
 
-3. **Model Weights:**
-    - `best.pt` and `yolov8n.pt` should be present in the root directory.
-    - For YOLO-NAS, pretrained weights are downloaded automatically.
+4. **Model Weights:**
+    - Place `best.pt` and `best.onnx` in the `Models/` directory.
 
 ---
 
@@ -55,40 +61,20 @@ This project is a comprehensive surveillance and object detection suite develope
 ### 1. Secure Login
 
 ```sh
-python gui_login.py
+python src/gui_login.py
 ```
 - Splash screen followed by a secure login page.
 - Default credentials:  
   - **SECURITY ID:** `AstraBharat`  
   - **ACCESS CODE:** `12345`
 
-### 2. Telemetry Dashboard & Detection
+### 2. Dashboard, Detection and Analysis
 
 ```sh
-python tempCodeRunnerFile.py
+python src/astra_gui_final.py
 ```
-- Real-time telemetry, detection logs, camera view, and performance graphs.
-
-### 3. Snapdragon YOLOv8 Detection
-
-```sh
-python detection.py
-```
-- Optimized for Snapdragon NPU (runs on CPU if NPU unavailable).
-
-### 4. YOLO-NAS Detection
-
-```sh
-python yolo-nas.py
-```
-- Advanced detection with quantization support.
-
-### 5. YOLOv8 Quantized Detection
-
-```sh
-python yolov8-quant.py
-```
-- Efficient detection using quantized YOLOv8 models.
+- Real-time detection, logs, camera view, and performance graphs.
+- User interactive LLM Agent for faster and accurate analysis and feedback.
 
 ---
 
@@ -96,13 +82,13 @@ python yolov8-quant.py
 
 - **Images:** GUI icons and backgrounds in [`images/`](images)
 - **Logos:** AstraBharat and Qualcomm logos in [`Logos/`](Logos)
+- **Models:** YOLOv8 weights in [`Models/`](Models)
 
 ---
 
 ## Notes
 
 - For camera features, ensure a webcam is connected.
-- Serial telemetry requires a device on `COM5` (can be changed in code).
 - Some features (like NPU usage) are simulated unless run on compatible hardware.
 
 ---
@@ -115,4 +101,4 @@ python yolov8-quant.py
 
 ## Authors
 
-- AstraBharat Defense Systems
+- Victor Azad, Piyush Kumar, Sohan Patidar, Ramesh Kumar

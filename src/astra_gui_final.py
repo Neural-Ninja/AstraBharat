@@ -40,7 +40,7 @@ def estimate_npu_usage():
     return min(70, max(30, int(npu_usage)))
 
 class OptimizedTrackingModel:
-    def __init__(self, model_path="best.onnx"):
+    def __init__(self, model_path="Models\\best.onnx"):
         # Setup hardware acceleration
         available_providers = ort.get_available_providers()
         print(f"Available providers: {available_providers}")
